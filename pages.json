@@ -3,13 +3,13 @@
     "titulo": "Pagina web de soto",
     "sub": "Sotomanía oficial",
     "desc": "jeronimo soto tiene su propia pagina web y es esta: el epicentro de la sotomania.",
-    "link": "https://molics.github.io"
+    "link": "https://molics.github.io/sotomania/index.html"
   },
   {
     "titulo": "El mundo de los Patos",
     "sub": "Naturaleza",
     "desc": "Un pato es un ave que dice cuac. Hay muchos patos en el lago.",
-    "link": "https://es.wikipedia.org"
+    "link": "https://en.wikipedia.org/wiki/Duck"
   },
   {
     "titulo": "google",
@@ -85,5 +85,6 @@
   }
 
 ]
+
 
 

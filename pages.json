@@ -3,80 +3,72 @@
     "titulo": "Pagina web de soto",
     "sub": "Sotomanía oficial",
     "desc": "jeronimo soto tiene su propia pagina web y es esta: el epicentro de la sotomania.",
-    "link": "https://molics.github.io/sotomania/index.html",
+    "link": "https://molics.github.io/sotomania/index.html"
   },
   {
     "titulo": "El mundo de los Patos",
     "sub": "Naturaleza",
     "desc": "Un pato es un ave que dice cuac. Hay muchos patos en el lago.",
-    "link": "https://es.wikipedia.org/wiki/Pato",
-  }
+    "link": "https://es.wikipedia.org/wiki/Pato"
+  },
   {
     "titulo": "google",
     "sub": "busca en google",
     "desc": "Busca en la información del mundo, incluyendo páginas web, imágenes, vídeos y más. Google tiene muchas funciones especiales para ayudarte a encontrar exactamente lo que buscas.",
-    "link": "https://www.google.com",
-  }
+    "link": "https://www.google.com"
+  },
   {
     "titulo": "youtube",
     "sub": "mira videos grtis",
     "desc": "Disfruta de los vídeos y la música que te encantan, sube contenido original y compártelo todo con amigos, familia y el mundo en YouTube.",
-    "link": "https://www.youtube.com",
-  }
-  {
-    "titulo": "porno",
-    "sub": "mira porno",
-    "desc": "en porno.com púedes ver porno",
-    "link": "https://www.porno.com/",
-  }
+    "link": "https://www.youtube.com"
+  },
   {
     "titulo": "pagina web del deportivo cali",
     "sub": "la pagina web del equipo de la ciudad de cali",
     "desc": "Club deportivo colombiano con sede en Cali, conocido principalmente por su equipo de fútbol",
-    "link": "https://www.deportivocali.com.co/",
-  }
+    "link": "https://www.deportivocali.com.co/"
+  },
   {
     "titulo": "america de cali",
     "sub": "el equipo que su dueño no lo coje como equipo sino como negocio",
     "desc": "Club colombiano de fútbol asociación",
-    "link": "https://www.americadecali.com/",
-  }
+    "link": "https://www.americadecali.com/"
+  },
   {
     "titulo": "temu",
     "sub": "ten cuidado que depronto te estafan los chinos",
     "desc": "compra como un millonario",
-    "link": "https://www.temu.com/",
-  }
+    "link": "https://www.temu.com/"
+  },
   {
     "titulo": "amazon",
     "sub": "compra en amazon",
     "desc": "amazon no to estafan nunca",
-    "link": "https://www.amazon.com/",
-  }
+    "link": "https://www.amazon.com/"
+  },
   {
     "titulo": "mercado libre",
     "sub": "compra en mercado libre",
     "desc": "es barato y depronto te robn pero almenos no son chinos",
-    "link": "https://www.mercadolibre.com/",
-  }
+    "link": "https://www.mercadolibre.com/"
+  },
   {
     "titulo": "aliexpress",
     "sub": "compra en ali express",
     "desc": "passion shouldn't cost a fortune. On AliExpress, shop online for over 111 million affordable products from China on Fashion, Men's and Women's Clothing, Electronics, Toys, Tools, Home & Garden on our marketplace with free shipping! Login app for coupons.",
-    "link": "https://es.aliexpress.com/?gatewayAdapt=glo2esp",
-  }
+    "link": "https://es.aliexpress.com/?gatewayAdapt=glo2esp"
+  },
   {
     "titulo": "chatgpt",
     "sub": "abla con una ia",
     "desc": "ChatGPT is your AI chatbot for everyday use. Chat with the most advanced AI to explore ideas, solve problems, and learn faster.",
-    "link": "https://chatgpt.com/",
-  }
+    "link": "https://chatgpt.com/"
+  },
   {
     "titulo": "duckduckgo",
     "sub": "busca con privacidad",
     "desc": "The Internet privacy company that empowers you to seamlessly take control of your personal information online, without any tradeoffs.",
-    "link": "https://duckduckgo.com",
+    "link": "https://duckduckgo.com"
   }
 ]
-
-

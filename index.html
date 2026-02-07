@@ -3,20 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SotoSearch - Inteligencia Pro</title>
+    <title>SotoSearch - El Original</title>
     <style>
-        :root { --blue: #1a73e8; --red: #ea4335; --green: #34a853; --yellow: #fbbc05; }
+        /* COLORES ORIGINALES */
+        :root { --soto-azul: #1a73e8; --search-rojo: #ea4335; --link-verde: #006621; }
+        
         body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; background: #fff; }
         
-        /* LOGO */
+        /* LOGO RESTAURADO */
         .logo { font-size: 3.5rem; font-weight: 900; margin-bottom: 20px; margin-top: 40px; cursor: default; }
-        .logo span:nth-child(odd) { color: var(--blue); }
-        .logo span:nth-child(even) { color: var(--red); }
+        .logo .soto { color: var(--soto-azul); }
+        .logo .search { color: var(--search-rojo); }
 
         /* BUSCADOR */
         .search-container { width: 100%; max-width: 580px; position: sticky; top: 10px; z-index: 100; }
         #inputBusqueda { width: 100%; padding: 15px 25px; border-radius: 30px; border: 1px solid #dfe1e5; font-size: 1rem; outline: none; box-shadow: 0 2px 8px rgba(0,0,0,0.1); box-sizing: border-box; }
-        #inputBusqueda:focus { border-color: transparent; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+        #inputBusqueda:focus { box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
 
         /* RESULTADOS */
         #resultados { width: 100%; max-width: 650px; margin-top: 30px; }
@@ -25,42 +27,42 @@
         .card cite { display: block; color: #202124; font-size: 14px; font-style: normal; margin-bottom: 2px; }
         .card a { color: #1a0dab; font-size: 1.3rem; text-decoration: none; font-weight: 500; }
         .card a:hover { text-decoration: underline; }
-        .card .subtitle { color: #006621; font-size: 0.95rem; margin: 2px 0; font-weight: 400; }
+        
+        /* SUBTÍTULO VISIBLE */
+        .card .subtitle { color: var(--link-verde); font-size: 0.95rem; margin: 2px 0; }
+        
         .card p { color: #4d5156; font-size: 0.9rem; margin: 5px 0; line-height: 1.4; }
         .relevancia { font-size: 10px; color: #70757a; background: #f1f3f4; padding: 2px 8px; border-radius: 10px; float: right; }
 
         /* PANEL INFERIOR */
         .footer-panel { width: 100%; max-width: 580px; background: #f8f9fa; padding: 25px; border-radius: 20px; margin: 60px 0; text-align: center; border: 1px solid #ddd; box-sizing: border-box; }
-        .btn-gmail { display: inline-block; background: var(--red); color: white; text-decoration: none; padding: 14px 28px; border-radius: 30px; font-weight: bold; margin-top: 15px; transition: 0.3s; }
-        .btn-gmail:hover { transform: scale(1.05); }
+        .btn-gmail { display: inline-block; background: var(--search-rojo); color: white; text-decoration: none; padding: 14px 28px; border-radius: 30px; font-weight: bold; margin-top: 15px; }
     </style>
 </head>
 <body>
 
+    <!-- LOGO CON TUS COLORES -->
     <div class="logo">
-        <span>S</span><span>o</span><span>t</span><span>o</span><span>S</span><span>e</span><span>a</span><span>r</span><span>c</span><span>h</span>
+        <span class="soto">Soto</span><span class="search">Search</span>
     </div>
 
     <div class="search-container">
-        <input type="text" id="inputBusqueda" placeholder="¿Qué quieres encontrar hoy?" autocomplete="off">
+        <input type="text" id="inputBusqueda" placeholder="Buscar en la red de Soto..." autocomplete="off">
     </div>
 
     <div id="resultados"></div>
 
     <div class="footer-panel">
         <h3>🚀 ¿Quieres que tu página aparezca aquí?</h3>
-        <p style="color:#666; font-size: 0.9rem;">Haz clic abajo para redactar los datos en Gmail.</p>
+        <p style="color:#666; font-size: 0.9rem;">Haz clic abajo para enviarme los datos por Gmail.</p>
         
-        <!-- CAMBIA TU CORREO AQUÍ -->
         <a href="https://mail.google.com:" 
            target="_blank" class="btn-gmail">
             ✉️ Enviar Datos por Gmail
         </a>
-        <p style="font-size: 0.8rem; color: #999; margin-top: 15px;">Contacto manual: jeronimosotom@gmail.com</p>
     </div>
 
     <script>
-        // --- TU LINK RAW DE GITHUB ---
         const URL_DATOS = "https://raw.githubusercontent.com";
 
         const input = document.getElementById('inputBusqueda');
@@ -74,13 +76,13 @@
             const query = input.value.toLowerCase().trim();
             if (!query) return;
 
-            caja.innerHTML = "<p style='text-align:center; color:#70757a;'>Analizando la red...</p>";
+            caja.innerHTML = "<p style='text-align:center; color:#70757a;'>Buscando...</p>";
 
             try {
                 const res = await fetch(URL_DATOS);
                 const data = await res.json();
 
-                // Separar la búsqueda en palabras individuales
+                // BUSCADOR INTELIGENTE: Separa palabras
                 const terminos = query.split(/\s+/); 
 
                 const filtrados = data.map(item => {
@@ -92,19 +94,11 @@
                     terminos.forEach(term => {
                         if (term.length < 2) return;
 
-                        // PRIORIDAD 1: Título (50 puntos por cada vez que aparezca la palabra)
-                        if (titulo.includes(term)) {
-                            puntos += 50 + (titulo.split(term).length - 1) * 5;
-                        }
-
-                        // PRIORIDAD 2: Subtítulo (20 puntos)
-                        if (sub.includes(term)) {
-                            puntos += 20;
-                        }
-
-                        // PRIORIDAD 3: Descripción (2 puntos por cada repetición)
-                        const repeticionesDesc = desc.split(term).length - 1;
-                        puntos += repeticionesDesc * 2;
+                        // PRIORIDADES
+                        if (titulo.includes(term)) puntos += 100; // Título manda
+                        if (sub.includes(term)) puntos += 40;     // Subtítulo sigue
+                        const reps = desc.split(term).length - 1; // Descripción suma poco
+                        puntos += reps * 2;
                     });
 
                     return { ...item, score: puntos };
@@ -114,14 +108,14 @@
 
                 caja.innerHTML = "";
                 if (filtrados.length === 0) {
-                    caja.innerHTML = `<p style="text-align:center; color:gray; margin-top:20px;">No se encontraron resultados para "${query}". Pruebe con otras palabras.</p>`;
+                    caja.innerHTML = `<p style="text-align:center; color:gray; margin-top:20px;">No hay resultados para "${query}".</p>`;
                     return;
                 }
 
                 filtrados.forEach(item => {
                     caja.innerHTML += `
                         <div class="card">
-                            <span class="relevancia">Puntaje: ${item.score}</span>
+                            <span class="relevancia">Relevancia: ${item.score}</span>
                             <cite>${item.link}</cite>
                             <a href="${item.link}" target="_blank">${item.titulo}</a>
                             <div class="subtitle">${item.sub}</div>
@@ -130,7 +124,7 @@
                     `;
                 });
             } catch (err) {
-                caja.innerHTML = `<p style="color:red; text-align:center;">Error: Revisa que el archivo pages.json en GitHub no tenga comas mal puestas.</p>`;
+                caja.innerHTML = `<p style="color:red; text-align:center;">Error: Revisa las comas de tu archivo pages.json en GitHub.</p>`;
             }
         }
     </script>

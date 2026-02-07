@@ -124,6 +124,11 @@
     "sub": "es el canal de soto",
     "desc": "solo es un canal de video juegos",
     "link": "https://www.youtube.com/@final_GD_XD"
+  },
+  {
+    "titulo": "whatsapp",
+    "sub": "mensajes gratis en whatsapp",
+    "desc": "Inicia sesión en WhatsApp Web para mensajes sencillos, fiables y privados desde tu escritorio. Envía y recibe mensajes y archivos con facilidad, todo gratis.",
+    "link": "https://web.whatsapp.com/"
   }
 ]
-

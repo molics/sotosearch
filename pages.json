@@ -130,5 +130,18 @@
     "sub": "mensajes gratis en whatsapp",
     "desc": "Inicia sesión en WhatsApp Web para mensajes sencillos, fiables y privados desde tu escritorio. Envía y recibe mensajes y archivos con facilidad, todo gratis.",
     "link": "https://web.whatsapp.com/"
+  },
+  {
+    "titulo": "proyecto de github",
+    "sub": "es el prollecto de github",
+    "desc": "aqui puedes ver el codigo fuente de soto search",
+    "link": "https://github.com/molics/sotosearch"
+  },
+  {
+    "titulo": "github",
+    "sub": "github es el mejor para aljar paginas como sotosearch",
+    "desc": "Únete a la plataforma de desarrolladores impulsada por IA más adoptada del mundo, donde millones de desarrolladores, empresas y la mayor comunidad de código abierto crean software que impulsa a la humanidad.",
+    "link": "https://github.com/"
   }
 ]
+

@@ -87,7 +87,7 @@
     "titulo": "pages",
     "sub": "paginas disponibles",
     "desc": "todas las paginas disponibles",
-    "link": "https://raw.githubusercontent.com/molics/sotosearch/refs/heads/main/pages.json
+    "link": "https://raw.githubusercontent.com/molics/sotosearch/refs/heads/main/pages.json",
   },
   {
     "titulo": "scratch",
@@ -100,12 +100,23 @@
     "sub": "foto de soto un poco rara",
     "desc": "esta foto salio cuando me tome una foto con un celular de teclas y se activo el flash",
     "link": "https://molics.github.io/sotomania/isp.jpg"
+  },
+  {
+    "titulo": "tubowarp packer",
+    "sub": "empacketa tis prollectos sb, sb2, sb3 a todos los archivos que quieras html, app o exe!",
+    "desc": seguro si es el tubowarp packer original y este si es",
+    "link": "https://packager.turbowarp.org/"
+  },
+  {
+    "titulo": "convertio",
+    "sub": "convierte archivos a todos los que quieras",
+    "desc": "Convertio - Herramienta sencilla para convertir archivos en línea. Se soportan más de 309 formatos diferentes de documentos, imágenes, hojas de cálculo, libros electrónicos, archivos, presentaciones, audio y vídeo.",
+    "link": "https://convertio.com/"
+  },
+  {
+    "titulo": "achicar imagenes online",
+    "sub": "es muy buena",
+    "desc": "Achica Imágenes es un sitio web que te permite achicar imágenes JPG, PNG, BMP o GIF de forma fácil y rápida. Puedes elegir el plan premium para obtener más características y privacidad, o usar la versión gratuita con publicidad.",
+    "link": "https://www.achicarimagenes.com.ar/"
   }
-    
-
 ]
-
-
-
-
-

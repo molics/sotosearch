@@ -87,7 +87,7 @@
     "titulo": "pages",
     "sub": "paginas disponibles",
     "desc": "todas las paginas disponibles",
-    "link": "https://raw.githubusercontent.com/molics/sotosearch/refs/heads/main/pages.json",
+    "link": "https://raw.githubusercontent.com/molics/sotosearch/refs/heads/main/pages.json"
   },
   {
     "titulo": "scratch",
@@ -120,5 +120,3 @@
     "link": "https://www.achicarimagenes.com.ar/"
   }
 ]
-
-

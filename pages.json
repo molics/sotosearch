@@ -91,7 +91,7 @@
   },
   {
     "titulo": "scratch",
-    "subtitulo": "crea proyectos de programacion con interfas grafica y con bloques dinamicos",
+    "sub": "crea proyectos de programacion con interfas grafica y con bloques dinamicos",
     "desc": "del m.i.t no se si sea muy seguro que digamos",
     "link": "https://scratch.mit.edu"
   },
@@ -120,4 +120,5 @@
     "link": "https://www.achicarimagenes.com.ar/"
   }
 ]
+
 

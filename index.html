@@ -71,7 +71,7 @@
             caja.innerHTML = "<p style='text-align:center;'>Buscando...</p>";
 
             try {
-                const res = await fetch(URL_DATOS);
+                const res = await fetch(https://raw.githubusercontent.com/molics/sotosearch/refs/heads/main/pages.json);
                 if (!res.ok) throw new Error();
                 const data = await res.json();
                 
@@ -108,3 +108,4 @@
     </script>
 </body>
 </html>
+

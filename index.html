@@ -3,134 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SotoSearch - El Original</title>
+    <title>SotoSearch - Inteligencia Artificial</title>
     <style>
-        /* COLORES ORIGINALES */
-        :root { --soto-azul: #1a73e8; --search-rojo: #ea4335; --link-verde: #006621; }
-        
+        :root { --soto: #1a73e8; --search: #ea4335; --green: #34a853; }
         body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; background: #fff; }
         
-        /* LOGO RESTAURADO */
-        .logo { font-size: 3.5rem; font-weight: 900; margin-bottom: 20px; margin-top: 40px; cursor: default; }
-        .logo .soto { color: var(--soto-azul); }
-        .logo .search { color: var(--search-rojo); }
+        .logo { font-size: 3.5rem; font-weight: 900; margin: 40px 0 20px; cursor: pointer; }
+        .logo .s { color: var(--soto); }
+        .logo .search { color: var(--search); }
 
-        /* BUSCADOR */
         .search-container { width: 100%; max-width: 580px; position: sticky; top: 10px; z-index: 100; }
         #inputBusqueda { width: 100%; padding: 15px 25px; border-radius: 30px; border: 1px solid #dfe1e5; font-size: 1rem; outline: none; box-shadow: 0 2px 8px rgba(0,0,0,0.1); box-sizing: border-box; }
-        #inputBusqueda:focus { box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
 
-        /* RESULTADOS */
         #resultados { width: 100%; max-width: 650px; margin-top: 30px; }
-        .card { padding: 15px; margin-bottom: 15px; border-radius: 8px; transition: 0.2s; }
-        .card:hover { background: #f8f9fa; }
-        .card cite { display: block; color: #202124; font-size: 14px; font-style: normal; margin-bottom: 2px; }
-        .card a { color: #1a0dab; font-size: 1.3rem; text-decoration: none; font-weight: 500; }
-        .card a:hover { text-decoration: underline; }
         
-        /* SUBTÍTULO VISIBLE */
-        .card .subtitle { color: var(--link-verde); font-size: 0.95rem; margin: 2px 0; }
-        
-        .card p { color: #4d5156; font-size: 0.9rem; margin: 5px 0; line-height: 1.4; }
-        .relevancia { font-size: 10px; color: #70757a; background: #f1f3f4; padding: 2px 8px; border-radius: 10px; float: right; }
+        /* CUADRO DE LA IA (Jesa Sim) */
+        .ia-box { background: #f0f7ff; border: 1px solid #1a73e8; padding: 20px; border-radius: 15px; margin-bottom: 25px; display: none; border-left: 5px solid var(--soto); }
+        .ia-title { color: var(--soto); font-weight: bold; margin-bottom: 8px; font-size: 0.9rem; }
+        .ia-text { color: #202124; font-size: 1.1rem; line-height: 1.5; }
 
-        /* PANEL INFERIOR */
-        .footer-panel { width: 100%; max-width: 580px; background: #f8f9fa; padding: 25px; border-radius: 20px; margin: 60px 0; text-align: center; border: 1px solid #ddd; box-sizing: border-box; }
-        .btn-gmail { display: inline-block; background: var(--search-rojo); color: white; text-decoration: none; padding: 14px 28px; border-radius: 30px; font-weight: bold; margin-top: 15px; }
+        .card { padding: 15px; margin-bottom: 15px; border-radius: 8px; }
+        .card cite { display: block; color: #202124; font-size: 14px; font-style: normal; }
+        .card a { color: #1a0dab; font-size: 1.3rem; text-decoration: none; font-weight: 500; }
+        .card .subtitle { color: #006621; font-size: 0.95rem; margin: 2px 0; }
+        .card p { color: #4d5156; font-size: 0.9rem; margin: 5px 0; }
     </style>
 </head>
 <body>
 
-    <!-- LOGO CON TUS COLORES -->
-    <div class="logo">
-        <span class="soto">Soto</span><span class="search">Search</span>
+    <div class="logo" onclick="location.reload()">
+        <span class="s">Soto</span><span class="search">Search</span>
     </div>
 
     <div class="search-container">
-        <input type="text" id="inputBusqueda" placeholder="Buscar en la red de Soto..." autocomplete="off">
+        <input type="text" id="inputBusqueda" placeholder="Busca o pregúntale algo a la IA..." autocomplete="off">
     </div>
 
-    <div id="resultados"></div>
-
-    <div class="footer-panel">
-        <h3>🚀 ¿Quieres que tu página aparezca aquí?</h3>
-        <p style="color:#666; font-size: 0.9rem;">Haz clic abajo para enviarme los datos por Gmail.</p>
-        
-        <a href="https://mail.google.com:" 
-           target="_blank" class="btn-gmail">
-            ✉️ Enviar Datos por Gmail
-        </a>
-        <p>deve ir al correo: jeronimosotom@gmail.com y ademas tiene que tener titulo, link, subtitulo y descripcion sino no se acepta el resulatado</p>
+    <div id="resultados">
+        <!-- AQUÍ APARECERÁ EL CUADRO DE IA -->
+        <div id="iaBox" class="ia-box">
+            <div class="ia-title">✨ RESPUESTA DE JESA IA (Simulación)</div>
+            <div id="iaTexto" class="ia-text"></div>
+        </div>
+        <div id="linksArea"></div>
     </div>
 
     <script>
-        const URL_DATOS = "https://raw.githubusercontent.com/molics/sotosearch/refs/heads/main/pages.json";
-
+        const URL_DATOS = "https://raw.githubusercontent.com";
         const input = document.getElementById('inputBusqueda');
-        const caja = document.getElementById('resultados');
+        const iaBox = document.getElementById('iaBox');
+        const iaTexto = document.getElementById('iaTexto');
+        const linksArea = document.getElementById('linksArea');
 
         input.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') realizarBusqueda();
         });
 
+        function cerebroIA(q) {
+            const query = q.toLowerCase();
+            
+            // --- BASE DE CONOCIMIENTO DE JESA ---
+            if (query.includes("kilómetros") && query.includes("cali") && query.includes("bogotá")) {
+                return "La distancia entre Cali y Bogotá es de aproximadamente 460 km. Por carretera son unas 10 horas cruzando La Línea.";
+            }
+            if (query.includes("quien") && (query.includes("soto") || query.includes("creador"))) {
+                return "Fui creada por Jeronimo Soto, el desarrollador detrás de la tecnología Jesa y SotoSearch.";
+            }
+            if (query.includes("hola") || query.includes("quien eres")) {
+                return "¡Hola! Soy Jesa 2.2, una simulación de IA integrada en SotoSearch.";
+            }
+            if (query.includes("clima") && query.includes("cali")) {
+                return "Cali suele ser calurosa, con una temperatura media de 24°C a 30°C. ¡Ideal para un cholado!";
+            }
+            
+            return null; // Si no hay respuesta IA
+        }
+
         async function realizarBusqueda() {
-            const query = input.value.toLowerCase().trim();
+            const query = input.value.trim();
             if (!query) return;
 
-            caja.innerHTML = "<p style='text-align:center; color:#70757a;'>Buscando...</p>";
+            linksArea.innerHTML = "Buscando...";
+            iaBox.style.display = "none";
 
+            // 1. Lógica de la IA
+            const respuesta = cerebroIA(query);
+            if (respuesta) {
+                iaBox.style.display = "block";
+                iaTexto.innerHTML = ""; // Limpiar
+                escribirIA(respuesta);
+            }
+
+            // 2. Lógica de Links (GitHub)
             try {
                 const res = await fetch(URL_DATOS);
                 const data = await res.json();
-
-                // BUSCADOR INTELIGENTE: Separa palabras
-                const terminos = query.split(/\s+/); 
+                const terminos = query.toLowerCase().split(/\s+/);
 
                 const filtrados = data.map(item => {
-                    let puntos = 0;
-                    const titulo = item.titulo.toLowerCase();
-                    const sub = item.sub.toLowerCase();
-                    const desc = item.desc.toLowerCase();
+                    let pts = 0;
+                    const full = (item.titulo + " " + item.sub + " " + item.desc).toLowerCase();
+                    terminos.forEach(t => { if (full.includes(t)) pts += (item.titulo.toLowerCase().includes(t) ? 50 : 2); });
+                    return { ...item, score: pts };
+                }).filter(i => i.score > 0).sort((a, b) => b.score - a.score);
 
-                    terminos.forEach(term => {
-                        if (term.length < 2) return;
-
-                        // PRIORIDADES
-                        if (titulo.includes(term)) puntos += 100; // Título manda
-                        if (sub.includes(term)) puntos += 40;     // Subtítulo sigue
-                        const reps = desc.split(term).length - 1; // Descripción suma poco
-                        puntos += reps * 2;
-                    });
-
-                    return { ...item, score: puntos };
-                })
-                .filter(i => i.score > 0)
-                .sort((a, b) => b.score - a.score);
-
-                caja.innerHTML = "";
-                if (filtrados.length === 0) {
-                    caja.innerHTML = `<p style="text-align:center; color:gray; margin-top:20px;">No hay resultados para "${query}".</p>`;
-                    return;
-                }
-
-                filtrados.forEach(item => {
-                    caja.innerHTML += `
+                linksArea.innerHTML = filtrados.length ? "" : "No hay resultados en la base de datos.";
+                filtrados.forEach(i => {
+                    linksArea.innerHTML += `
                         <div class="card">
-                            <span class="relevancia">Relevancia: ${item.score}</span>
-                            <cite>${item.link}</cite>
-                            <a href="${item.link}" target="_blank">${item.titulo}</a>
-                            <div class="subtitle">${item.sub}</div>
-                            <p>${item.desc}</p>
-                        </div>
-                    `;
+                            <cite>${i.link}</cite>
+                            <a href="${i.link}" target="_blank">${i.titulo}</a>
+                            <div class="subtitle">${i.sub}</div>
+                            <p>${i.desc}</p>
+                        </div>`;
                 });
-            } catch (err) {
-                caja.innerHTML = `<p style="color:red; text-align:center;">Error: Revisa las comas de tu archivo pages.json en GitHub.</p>`;
-            }
+            } catch (e) { linksArea.innerHTML = "Error al conectar con la base de datos."; }
+        }
+
+        function escribirIA(texto) {
+            let i = 0;
+            let intervalo = setInterval(() => {
+                if (i < texto.length) {
+                    iaTexto.innerHTML += texto.charAt(i);
+                    i++;
+                } else { clearInterval(intervalo); }
+            }, 25);
         }
     </script>
 </body>
 </html>
-
-
-

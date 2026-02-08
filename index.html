@@ -3,20 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SotoSearch - El Buscador de Soto</title>
+    <title>SotoSearch® - El Buscador de Soto</title>
     <style>
         :root { --soto-azul: #1a73e8; --search-rojo: #ea4335; --link-verde: #006621; }
         body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; background: #fff; }
         
-        /* LOGO ORIGINAL */
-        .logo { font-size: 3.5rem; font-weight: 900; margin-bottom: 20px; margin-top: 40px; cursor: pointer; }
+        /* LOGO ORIGINAL CON MARCA REGISTRADA */
+        .logo { font-size: 3.5rem; font-weight: 900; margin-bottom: 20px; margin-top: 40px; cursor: pointer; position: relative; }
         .logo .soto { color: var(--soto-azul); }
         .logo .search { color: var(--search-rojo); }
+        .logo .registrado { font-size: 1rem; vertical-align: super; color: #555; font-weight: bold; margin-left: 2px; }
 
-        /* BUSCADOR */
-        .search-container { width: 100%; max-width: 580px; position: sticky; top: 10px; z-index: 100; }
-        #inputBusqueda { width: 100%; padding: 15px 25px; border-radius: 30px; border: 1px solid #dfe1e5; font-size: 1rem; outline: none; box-shadow: 0 2px 8px rgba(0,0,0,0.1); box-sizing: border-box; background: white; }
-        #inputBusqueda:focus { box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+        /* BARRA DE BÚSQUEDA CON BOTÓN */
+        .search-container { width: 100%; max-width: 580px; position: sticky; top: 10px; z-index: 100; display: flex; align-items: center; background: white; border-radius: 30px; border: 1px solid #dfe1e5; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 2px; }
+        .search-container:focus-within { box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+        
+        #inputBusqueda { flex: 1; padding: 12px 20px; border: none; border-radius: 30px 0 0 30px; font-size: 1rem; outline: none; }
+        
+        .btn-buscar { background: none; border: none; padding: 10px 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.2s; border-radius: 0 30px 30px 0; }
+        .btn-buscar svg { fill: var(--soto-azul); width: 24px; height: 24px; }
+        .btn-buscar:hover { background: #f8f9fa; }
 
         /* RESULTADOS */
         #resultados { width: 100%; max-width: 650px; margin-top: 30px; }
@@ -33,38 +39,30 @@
         .footer-panel { width: 100%; max-width: 580px; background: #f8f9fa; padding: 25px; border-radius: 20px; margin: 60px 0; text-align: center; border: 1px solid #ddd; box-sizing: border-box; }
         .btn-gmail { display: inline-block; background: var(--search-rojo); color: white; text-decoration: none; padding: 14px 28px; border-radius: 30px; font-weight: bold; margin-top: 15px; transition: 0.3s; }
         .btn-gmail:hover { transform: scale(1.05); }
-        .instrucciones { color: #666; font-size: 0.9rem; margin-top: 20px; text-align: left; background: white; padding: 15px; border-radius: 10px; border: 1px solid #eee; }
     </style>
 </head>
 <body>
 
     <div class="logo" onclick="location.reload()">
-        <span class="soto">Soto</span><span class="search">Search</span>
+        <span class="soto">Soto</span><span class="search">Search</span><span class="registrado">®</span>
     </div>
 
     <div class="search-container">
         <input type="text" id="inputBusqueda" placeholder="Buscar en la red de Soto..." autocomplete="off">
+        <button class="btn-buscar" onclick="realizarBusqueda()" title="Buscar en SotoSearch">
+            <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+        </button>
     </div>
 
     <div id="resultados"></div>
 
     <div class="footer-panel">
-        <h3>🚀 ¿Quieres aparecer en SotoSearch?</h3>
+        <h3>🚀 ¿Quieres aparecer en SotoSearch®?</h3>
         <p style="color:#666;">Haz clic abajo para enviarme tu página por Gmail:</p>
-        
         <a href="https://mail.google.com:" 
            target="_blank" class="btn-gmail">
             ✉️ Redactar en Gmail
         </a>
-
-        <div class="instrucciones">
-            <strong>📧 Estructura del correo:</strong><br>
-            Titulo: Nombre de tu web<br>
-            sub: Pequeña frase verde<br>
-            Desc: De qué trata tu página<br>
-            Link: https://tu-link.com<br><br>
-            <strong>Enviar a:</strong> jeronimosotom@gmail.com
-        </div>
     </div>
 
     <script>
@@ -80,10 +78,10 @@
             const query = input.value.trim();
             if (!query) return;
 
-            caja.innerHTML = "<p style='text-align:center; color:gray;'>Buscando en la nube...</p>";
+            caja.innerHTML = "<p style='text-align:center; color:gray;'>Consultando base de datos registrada...</p>";
 
             try {
-                const res = await fetch(https://molics.github.io/sotosearch/);
+                const res = await fetch(https://raw.githubusercontent.com/molics/sotosearch/refs/heads/main/pages.json);
                 const data = await res.json();
                 const terminos = query.toLowerCase().split(/\s+/);
 
@@ -105,14 +103,14 @@
 
                 caja.innerHTML = "";
                 if (filtrados.length === 0) {
-                    caja.innerHTML = `<p style='text-align:center; margin-top:20px; color:gray;'>No hay resultados para "${query}".</p>`;
+                    caja.innerHTML = `<p style='text-align:center; margin-top:20px; color:gray;'>No hay resultados oficiales para "${query}".</p>`;
                     return;
                 }
 
                 filtrados.forEach(i => {
                     caja.innerHTML += `
                         <div class="card">
-                            <span class="relevancia">Pts: ${i.score}</span>
+                            <span class="relevancia">Relevancia: ${i.score}</span>
                             <cite>${i.link}</cite>
                             <a href="${i.link}" target="_blank">${i.titulo}</a>
                             <div class="subtitle">${i.sub}</div>
@@ -120,10 +118,11 @@
                         </div>`;
                 });
             } catch (e) { 
-                caja.innerHTML = "<p style='color:red; text-align:center;'>Error de conexión. Revisa el JSON en GitHub.</p>"; 
+                caja.innerHTML = "<p style='color:red; text-align:center;'>Error de conexión con el servidor SotoSearch®.</p>"; 
             }
         }
     </script>
 </body>
 </html>
+
 

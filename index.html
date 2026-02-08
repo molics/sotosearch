@@ -96,7 +96,7 @@
 
             // 2. Lógica de Links (GitHub)
             try {
-                const res = await fetch(URL_DATOS);
+                const res = await fetch(https://raw.githubusercontent.com/molics/sotosearch/refs/heads/main/pages.json);
                 const data = await res.json();
                 const terminos = query.toLowerCase().split(/\s+/);
 
@@ -132,3 +132,4 @@
     </script>
 </body>
 </html>
+
